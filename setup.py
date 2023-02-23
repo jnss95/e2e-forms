@@ -8,6 +8,7 @@ setup(
         'flask',
         'flask-sqlalchemy',
         'flask-login',
-        'scrypt'
+        'scrypt',
+        'Flask-WTF'
     ],
 )
