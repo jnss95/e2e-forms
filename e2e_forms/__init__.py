@@ -5,10 +5,10 @@ import sqlite3
 app = Flask(__name__)
 db = SQLAlchemy()
 print(app.config['ENV'])
+app.config.from_pyfile('config.py')
 if (app.config['ENV'] == 'dev'):
     app.config['SECRET_KEY'] = 'dev'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/lib/e2e-forms/e2e-forms.db'
-
 
 
 db.init_app(app)
