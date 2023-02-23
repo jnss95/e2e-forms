@@ -4,6 +4,15 @@
 <div class="column is-4 is-offset-4">
     <h3 class="title">Sign Up</h3>
     <div class="box">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         <form method="POST" action="/signup">
             <div class="field">
                 <div class="control">
@@ -13,13 +22,12 @@
 
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                    <input class="input is-large" type="password" name="password" placeholder="Password">
                 </div>
             </div>
-
             <div class="field">
                 <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
+                    <input class="input is-large" type="password" name="password_repeat" placeholder="Password">
                 </div>
             </div>
 
