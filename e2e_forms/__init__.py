@@ -7,7 +7,10 @@ db = SQLAlchemy()
 print(app.config['ENV'])
 if (app.config['ENV'] == 'dev'):
     app.config['SECRET_KEY'] = 'dev'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///var/lib/e2e-forms/e2e-forms.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/lib/e2e-forms/e2e-forms.db'
+
+
+
 db.init_app(app)
 
 # blueprint for auth routes in our app
@@ -16,8 +19,5 @@ app.register_blueprint(auth_blueprint)
 
 @app.route('/')
 def hello():
-    for user in query_db('select * from users'):
-        print(user)
-    name = request.args.get("name", "World")
-    return f'Hello, {escape(name)}!'
+    return f'Hello!'
 
