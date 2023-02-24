@@ -67,16 +67,15 @@ def signup_post():
     form = SignupForm()
     if not form.validate_on_submit():
         return render_template('auth/signup.html', form=form)
-    email = request.form.get('email')
-    password = request.form.get('password')
-    password = request.form.get('password_repeat')
+    email = form.email.data
+    password = form.password.data
 
     user = User.query.filter_by(email=email).first()
-
     if user:
         if user.status == UserStatus.ACTIVE:
             flash('Email address already exists')
             return render_template('auth/signup.html')
+        # User exists but never activated its account.
         db.sesion.delete(user)
 
     hashed_password = hash_password(password)
