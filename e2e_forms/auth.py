@@ -3,8 +3,10 @@ import scrypt
 from flask_wtf import FlaskForm
 from wtforms.fields import EmailField, PasswordField
 from wtforms.validators import DataRequired, EqualTo, Length, Email
-from flask import Blueprint, flash, render_template
+from wtforms.validators import ValidationError
+from flask import Blueprint, render_template
 from base64 import b64encode
+from flask_babel import _
 
 from e2e_forms.models.user import User, UserStatus
 from e2e_forms import db
@@ -15,17 +17,23 @@ auth = Blueprint('auth', __name__)
 
 class SignupForm(FlaskForm):
     email = EmailField(
-        'Email',
+        _('E-Mail'),
         validators=[
             DataRequired(),
             Email(),
             Length(
                 max=255)])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField(_('Password'), validators=[DataRequired()])
     password_repeat = PasswordField(
-        'Repeat Password', validators=[
+        _('Repeat Password'), validators=[
             DataRequired(), EqualTo(
-                'password', message='Passwords must match')])
+                'password', message=_('Passwords must match'))])
+
+    def validate_email(self, field):
+        user = User.query.filter_by(email=field.data).first()
+        if user:
+            if user.status == UserStatus.ACTIVE:
+                raise ValidationError(_('Account already exists'))
 
 
 def hash_password(password: str) -> bytes:
@@ -70,11 +78,10 @@ def signup_post():
     email = form.email.data
     password = form.password.data
 
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter(
+        User.email == email,
+        User.status != UserStatus.ACTIVE).first()
     if user:
-        if user.status == UserStatus.ACTIVE:
-            flash('Email address already exists')
-            return render_template('auth/signup.html')
         # User exists but never activated its account.
         db.sesion.delete(user)
 
@@ -84,9 +91,9 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
     return render_template("notice.html",
-                           notice="To complete your registration, "
-                                  "please check your email for "
-                                  "a confirmation link.")
+                           notice=_("To complete your registration, "
+                                    "please check your email for "
+                                    "a confirmation link."))
 
 
 @auth.route('/logout')
