@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if notice %}
+        <div class="notification is-success">
+            {{ notice }}
+        </div>
+    {% endif %}
+{% endblock %}
