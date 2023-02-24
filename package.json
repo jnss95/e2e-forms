@@ -1,0 +1,22 @@
+{
+  "name": "e2e-forms",
+  "version": "0.0.1",
+  "description": "A small web application which provides an E2E encrypted form backend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnss95/e2e-forms.git"
+  },
+  "author": "Jonas Schulz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnss95/e2e-forms/issues"
+  },
+  "homepage": "https://github.com/jnss95/e2e-forms#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+}
