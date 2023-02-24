@@ -4,4 +4,17 @@
     "python.formatting.provider": "autopep8",
     "python.formatting.autopep8Args": ["--aggressive", "--aggressive"],
     "editor.formatOnSave": true,
+    "files.associations": {
+        "*.html": "jinja-html"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+    }
 }
