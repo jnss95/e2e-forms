@@ -1,4 +1,4 @@
-from .. import db
+from e2e_forms import db
 import enum
 
 
