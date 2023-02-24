@@ -10,6 +10,7 @@ setup(
         'flask-login',
         'scrypt',
         'Flask-WTF',
+        'email_validator',
         'Flask-Babel'
     ],
 )
