@@ -61,7 +61,7 @@ def verify_password(password: str, hashed_password: bytes) -> bool:
 
 @auth.route('/login')
 def login():
-    return 'Login'
+    return render_template('auth/login.html')
 
 
 @auth.route('/signup')

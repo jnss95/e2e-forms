@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover ">
+  <div class="bg-bg-light4 bg-opacity-20 dark:bg-bg-dark2 dark:bg-opacity-20 rounded-xl bg-gray-800  px-16 py-10 shadow-lg backdrop-blur-sm max-sm:px-8">
+    <div class="">
+      <div class="mb-8 flex flex-col items-center">
+        <img src="https://www.logo.wine/a/logo/Instagram/Instagram-Glyph-Color-Logo.wine.svg" width="150" alt="" srcset="" />
+        <h1 class="mb-2 text-2xl">Login</h1>
+        <span class="text-gray-300">
+          {% trans url=url_for('auth.signup') %}
+            If you have no account you can <a href="{{ url }}">sign up</a> here.
+          {% endtrans %}
+        </span>
+      </div>
+      <form action="#">
+        <div class="mb-4 text-lg">
+          <input class="rounded-3xl border-none bg-bg-light3 dark:bg-bg-dark3 text-fg-light0 dark:text-fg-dark0 bg-opacity-50 px-6 py-2 text-center text-inherit dark:placeholder-fg-dark4 placeholder-fg-light4 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="id@email.com" />
+        </div>
+
+        <div class="mb-4 text-lg">
+          <input class="rounded-3xl border-none bg-bg-light3 dark:bg-bg-dark3 text-fg-light0 dark:text-fg-dark0 bg-opacity-50 px-6 py-2 text-center text-inherit dark:placeholder-fg-dark4 placeholder-fg-light4 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" placeholder="*********" />
+        </div>
+        <div class="mt-8 flex justify-center text-lg text-black">
+          <button type="submit" class="rounded-3xl bg-bg-light4 dark:bg-bg-dark4 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
