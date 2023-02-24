@@ -1,9 +1,11 @@
 from .auth import auth as auth_blueprint
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_babel import Babel
 
 app = Flask(__name__)
 db = SQLAlchemy()
+babel = Babel(app)
 print(app.config['ENV'])
 app.config.from_pyfile('config.py')
 if (app.config['DEBUG']):
