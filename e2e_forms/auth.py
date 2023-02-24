@@ -3,7 +3,7 @@ import scrypt
 from flask_wtf import FlaskForm
 from wtforms.fields import EmailField, PasswordField
 from wtforms.validators import DataRequired, EqualTo, Length, Email
-from flask import Blueprint, flash, render_template, request
+from flask import Blueprint, flash, render_template
 from base64 import b64encode
 
 from e2e_forms.models.user import User, UserStatus
