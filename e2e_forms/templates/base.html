@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>E2E Forms</title>
-    <link rel="stylesheet" href="/static/main.css" />
-  </head>
 
-  <body class="dark:bg-bg-dark0 dark:text-fg-dark0 bg-bg-light0 text-fg-light1">
-    <div class="background-pattern dark:bg-polka-dark bg-polka"></div>
-    <nav>
-      <a href="/" class="logo">E2E Forms</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    <main>
-      {% block content %} {% endblock %}
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E2E Forms</title>
+  <link rel="stylesheet" href="/static/main.css" />
+</head>
+
+<body class="flex flex-col min-h-screen dark:bg-bg-dark0 dark:text-fg-dark0 bg-bg-light0 text-fg-light1">
+  <div class="background-pattern dark:bg-polka-dark bg-polka"></div>
+  <nav>
+    <a href="/" class="logo">E2E Forms</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <main class="container mx-auto px-5 grow flex">
+    {% block content %} {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+
 </html>
