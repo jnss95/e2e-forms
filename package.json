@@ -4,7 +4,8 @@
   "description": "A small web application which provides an E2E encrypted form backend.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx tailwindcss -i e2e_forms/static/main.tw.css -o e2e_forms/static/main.css --jit --minify",
+    "dev": "npx tailwindcss -i e2e_forms/static/main.tw.css -o e2e_forms/static/main.css --jit --watch"
   },
   "repository": {
     "type": "git",
