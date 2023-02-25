@@ -4,38 +4,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Flask Auth Example</title>
+    <title>E2E Forms</title>
     <link rel="stylesheet" href="/static/main.css" />
   </head>
 
   <body class="dark:bg-bg-dark0 dark:text-fg-dark0 bg-bg-light0 text-fg-light1">
     <div class="background-pattern dark:bg-polka-dark bg-polka"></div>
-    <section class="hero is-primary is-fullheight">
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container">
-            <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-                <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                  Login
-                </a>
-                <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                  Sign Up
-                </a>
-                <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                  Logout
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          {% block content %} {% endblock %}
-        </div>
-      </div>
-    </section>
+    <nav>
+      <a href="/" class="logo">E2E Forms</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <main>
+      {% block content %} {% endblock %}
+    </main>
   </body>
 </html>
